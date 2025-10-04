@@ -1,0 +1,69 @@
+.transaction-container {
+    margin: 40px auto; /* Center the container and add margin */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Increased shadow for depth */
+    max-width: 800px; /* Set a maximum width for larger screens */
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.transaction-container:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.transaction-container h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center; /* Center align the heading */
+    font-weight: 600; /* Make the heading slightly bolder */
+}
+
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Space between heading and table */
+}
+
+.transaction-table th,
+.transaction-table td {
+    border: 1px solid #ddd;
+    padding: 12px; /* Increased padding for better spacing */
+    text-align: left;
+}
+
+.transaction-table th {
+    background-color: #4CAF50; /* Green background for header */
+    color: white;
+    font-weight: 600; /* Bold text for header */
+    text-transform: uppercase; /* Uppercase header text */
+}
+
+.transaction-table tr:hover {
+    background-color: rgba(76, 175, 80, 0.1); /* Light green on hover */
+}
+
+.transaction-table td {
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.transaction-table td:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Light gray on hover for table cells */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .transaction-table th, 
+    .transaction-table td {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .transaction-container {
+        margin: 20px; /* Reduce margin on smaller screens */
+    }
+
+    .transaction-container h2 {
+        font-size: 2rem; /* Adjust heading size for smaller screens */
+    }
+}

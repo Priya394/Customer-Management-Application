@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Navigation App</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    // Initialize the map
+    var map = L.map('map').setView([51.505, -0.09], 13); // Starting location (London)
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Marker to track user's current location
+    var currentLocationMarker = L.marker([0, 0]).addTo(map);
+
+    // Function to update the user's location in real-time
+    function updateLocation(position) {
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+        currentLocationMarker.setLatLng([lat, lng]);
+        map.setView([lat, lng], 15); // Center the map on the user's location
+    }
+
+    // Error handling for geolocation
+    function locationError(error) {
+        alert('Error getting location: ' + error.message);
+    }
+
+    // Watch the user's position and update the map
+    navigator.geolocation.watchPosition(updateLocation, locationError, {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+    });
+
+    // Function to get route from OpenRouteService API
+    function getRoute(start, end) {
+        var apiKey = 'YOUR_OPENROUTESERVICE_API_KEY'; // Replace with your OpenRouteService API key
+        var url = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${apiKey}&start=${start.lng},${start.lat}&end=${end.lng},${end.lat}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                var routeCoordinates = data.features[0].geometry.coordinates;
+                var latLngs = routeCoordinates.map(function(coord) {
+                    return [coord[1], coord[0]]; // Convert [lng, lat] to [lat, lng]
+                });
+                L.polyline(latLngs, { color: 'blue' }).addTo(map); // Draw the route on the map
+            })
+            .catch(error => {
+                console.error('Error fetching route:', error);
+            });
+    }
+
+    // Example: Get route from user's current location to a destination
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var start = { lat: position.coords.latitude, lng: position.coords.longitude };
+        var end = { lat: 51.513, lng: -0.1 }; // Example destination (can be dynamic)
+        getRoute(start, end);
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+.homepage-button {
+   padding: 12px 24px; /* Increased padding for a larger button */
+   margin: 10px;
+   font-size: 1rem;
+   border: none;
+   border-radius: 8px; /* Increased border-radius for smoother corners */
+   background: linear-gradient(90deg, #007bff, #0056b3); /* Gradient background */
+   color: white;
+   cursor: pointer;
+   transition: all 0.3s ease; /* Smooth transition for all properties */
+   box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4); /* Shadow for depth */
+   font-weight: bold; /* Bold font for better visibility */
+}
+
+.homepage-button:hover {
+   background: linear-gradient(90deg, #0056b3, #007bff); /* Reverse gradient on hover */
+   box-shadow: 0 6px 12px rgba(0, 123, 255, 0.6); /* Deeper shadow on hover */
+   transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.homepage-button:active {
+   transform: translateY(1px); /* Downward movement on click */
+   box-shadow: 0 3px 6px rgba(0, 123, 255, 0.3); /* Shadow adjustment on click */
+}
+
+/* Optional: Add an icon */
+.homepage-button::before {
+   content: "➕"; /* This is just a placeholder; you can replace it with an actual icon */
+   margin-right: 8px; /* Space between icon and text */
+   font-size: 1.2rem; /* Adjust size as needed */
+   vertical-align: middle; /* Center the icon with text */
+} 

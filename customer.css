@@ -1,0 +1,86 @@
+.container {
+    max-width: 900px; /* Set a maximum width for the container */
+    margin: auto; /* Center the container */
+}
+
+h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    color: #007bff; /* Color for the heading */
+}
+
+.table {
+    margin-top: 20px; /* Space above the table */
+    border: 1px solid #ddd; /* Border around the table */
+}
+
+.table th {
+    background-color: #007bff; /* Background color for the table header */
+    color: white; /* Text color for the table header */
+}
+
+.table td {
+    vertical-align: middle; /* Center align text in table cells */
+}
+
+.card {
+    margin-top: 30px; /* Space above the card */
+    padding: 20px; /* Padding inside the card */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow around the card */
+}
+
+.card-body {
+    background-color: #f9f9f9; /* Background color for the card body */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space below each form group */
+}
+
+label {
+    font-weight: bold; /* Make labels bold */
+    color: #333; /* Color for labels */
+}
+
+input[type="text"],
+input[type="email"] {
+    border: 1px solid #ccc; /* Border for input fields */
+    border-radius: 5px; /* Rounded corners for input fields */
+    padding: 10px; /* Padding inside input fields */
+    width: 100%; /* Full width for input fields */
+    box-sizing: border-box; /* Include padding in the width */
+}
+
+.btn {
+    width: auto; /* Automatic width for buttons */
+}
+
+.btn-outline-danger {
+    border-color: #dc3545; /* Custom border color for delete button */
+    color: #dc3545; /* Custom text color for delete button */
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545; /* Background color on hover for delete button */
+    color: white; /* Text color on hover for delete button */
+}
+
+.btn-outline-secondary {
+    border-color: #6c757d; /* Custom border color for edit button */
+    color: #6c757d; /* Custom text color for edit button */
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d; /* Background color on hover for edit button */
+    color: white; /* Text color on hover for edit button */
+}
+
+.btn-outline-success {
+    border-color: #28a745; /* Custom border color for submit button */
+    color: #28a745; /* Custom text color for submit button */
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745; /* Background color on hover for submit button */
+    color: white; /* Text color on hover for submit button */
+}
